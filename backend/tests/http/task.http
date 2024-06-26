@@ -1,0 +1,36 @@
+GET {{base_url}}/tasks
+Accept: application/json
+Authorization: {{token}}
+
+###
+
+POST {{base_url}}/tasks
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "spider_id": "{{spider_id}}",
+  "cmd": "sh run.sh"
+}
+
+> {% client.global.set("task_id", response.body.data.id); %}
+
+###
+
+GET {{base_url}}/tasks/{{task_id}}
+Accept: application/json
+Authorization: {{token}}
+
+###
+
+POST {{base_url}}/tasks/{{task_id}}/cancel
+Accept: application/json
+Authorization: {{token}}
+
+###
+
+GET {{base_url}}/tasks/33270d09-7318-4bdb-983a-749dbf23497b/logs?page_num=1&page_size=50
+Accept: application/json
+Authorization: {{token}}
+
+###

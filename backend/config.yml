@@ -1,0 +1,36 @@
+api:
+  address: "localhost:8000"
+
+user:
+  username: "admin"
+  password: "admin"
+
+log:
+  level: debug
+  expireDays: 7
+
+server:
+  host: 0.0.0.0
+  port: 8000
+  secret: "crawlab-lite"
+  lang: # 安装语言环境, Y 为安装，N 为不安装
+    python: "Y"
+    node: "N"
+    java: "N"
+    dotnet: "N"
+    php: "N"
+
+spider:
+  path: "../data/spiders"
+
+task:
+  workers: 16
+  expireDays: 7
+
+kvdb:
+  path: "../data/db"
+
+other:
+  tmppath: "../data/tmp"
+
+version: 0.0.5

@@ -1,0 +1,41 @@
+GET {{base_url}}/schedules
+Accept: application/json
+Authorization: {{token}}
+
+###
+
+POST {{base_url}}/schedules
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "spider_id": "{{spider_id}}",
+  "cron": "*/10 * * * * *",
+  "cmd": "sh run.sh"
+}
+
+> {% client.global.set("schedule_id", response.body.data.id); %}
+
+###
+
+GET {{base_url}}/schedules/{{schedule_id}}
+Accept: application/json
+Authorization: {{token}}
+
+###
+
+PUT {{base_url}}/schedules/{{schedule_id}}
+Accept: application/json
+Authorization: {{token}}
+
+{
+  "enabled": 2
+}
+
+###
+
+DELETE {{base_url}}/schedules/{{schedule_id}}
+Accept: application/json
+Authorization: {{token}}
+
+###
